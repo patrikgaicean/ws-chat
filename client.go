@@ -38,4 +38,10 @@ type room struct {
 	// chan that holds incoming messages that should be forwarded to other
 	// clients
 	forward chan []byte
+	// chan for clients wishing to join the room
+	join chan *client
+	// chan for clients wishing to leave the room
+	leave chan *client
+	// holds all current clients in the room
+	clients map[*client]bool
 }
